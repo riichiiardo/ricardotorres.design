@@ -117,6 +117,7 @@ export const UI = {
     "case.boardNote": "Full case board exported from the original portfolio file: real screens, real narrative.",
     "case.screensTitle": "Product screens — from the live product",
     "case.screensNote": "Real screens from the published product (Google Play listing / product website).",
+    "stmt.label": "Manifesto",
   },
   es: {
     "nav.home": "Inicio",
@@ -236,5 +237,6 @@ export const UI = {
     "case.boardNote": "Tablero completo exportado del archivo original del portafolio: pantallas reales, narrativa real.",
     "case.screensTitle": "Pantallas del producto — del producto en vivo",
     "case.screensNote": "Pantallas reales del producto publicado (ficha de Google Play / sitio del producto).",
+    "stmt.label": "Manifiesto",
   },
 };

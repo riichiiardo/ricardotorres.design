@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         display: ['"Space Grotesk"', 'Manrope', 'sans-serif'],
+        accent: ['"Instrument Serif"', 'Georgia', 'serif'],
         body: ['Inter', 'Geist', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },

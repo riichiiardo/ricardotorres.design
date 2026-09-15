@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Hero from "../components/home/Hero";
 import Positioning from "../components/home/Positioning";
+import BoldStatement from "../components/BoldStatement";
 import SignatureWork from "../components/home/SignatureWork";
 import Marquee from "../components/Marquee";
 import AdditionalWork from "../components/home/AdditionalWork";
@@ -28,6 +29,7 @@ export default function HomePage() {
     <main data-testid="home-page">
       <Hero />
       <Positioning />
+      <BoldStatement />
       <Marquee items={expertiseLine} />
       <SignatureWork />
       <AdditionalWork />

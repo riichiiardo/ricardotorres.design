@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDown, Download, MapPin } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { MaskedLines } from "../Reveal";
 import { useLang } from "../../i18n/LanguageContext";
 import { scrollToHash } from "../Header";
@@ -14,12 +14,28 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.15]);
   const { profile, expertiseLine, t } = useLang();
   const factLabels = t("hero.facts");
-  const funnel = t("hero.funnel");
 
   return (
     <section id="top" ref={ref} data-testid="hero-section" className="relative min-h-[100svh] flex flex-col justify-center pt-24 pb-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-12 gap-8 items-end">
-        <div className="col-span-12 lg:col-span-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
+        <div className="col-span-12 lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.05, duration: 0.6 }}
+            className="flex items-center gap-3 mb-7"
+          >
+            <img
+              src="/images/ricardo-portrait.jpg"
+              alt=""
+              className="w-10 h-10 rounded-full object-cover border border-border"
+              data-testid="hero-avatar"
+            />
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              <span className="text-emerald-500">●</span> {profile.shortName} — {profile.location}
+            </p>
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -33,8 +49,8 @@ export default function Hero() {
           <MaskedLines
             key={t("hero.lines")[0]}
             lines={t("hero.lines")}
-            className="font-display font-bold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-6xl"
-            lineClassName=""
+            accentIndex={2}
+            className="font-display font-bold tracking-tight leading-[1.02] text-[2.55rem] sm:text-6xl lg:text-7xl"
           />
 
           <motion.p
@@ -58,7 +74,7 @@ export default function Hero() {
               href="#work"
               onClick={(e) => { e.preventDefault(); scrollToHash("#work"); }}
               data-testid="hero-explore-work-btn"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 text-xs font-mono uppercase tracking-[0.18em] hover:bg-brand hover:text-white transition-colors"
+              className="group inline-flex items-center gap-3 bg-brand text-white px-7 py-4 text-xs font-mono uppercase tracking-[0.18em] hover:bg-foreground hover:text-background transition-colors"
             >
               {t("hero.explore")}
               <ArrowDown size={14} className="transition-transform group-hover:translate-y-0.5" />
@@ -88,21 +104,46 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div style={{ y, opacity }} className="hidden lg:block col-span-4" data-testid="hero-aside">
-          <div className="border border-border p-6 bg-card/60">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{t("hero.open")}</span>
-            </div>
-            <p className="font-display text-2xl font-bold leading-tight tracking-tight">
-              {funnel.slice(0, 4).map((f) => (
-                <span key={f} className="block">→ {f}</span>
+        <motion.div
+          style={{ y, opacity }}
+          initial={{ opacity: 0, y: 48 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="col-span-12 lg:col-span-5 w-full max-w-md mx-auto lg:max-w-none"
+          data-testid="hero-portrait"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 translate-x-4 translate-y-4 bg-brand" aria-hidden="true" />
+            <div className="relative border border-foreground/25 bg-card aspect-[4/5] overflow-hidden">
+              <img
+                src="/images/ricardo-portrait.jpg"
+                alt="Ricardo Andrei Torres Medina — UX/UI Project Lead"
+                className="w-full h-full object-cover"
+                data-testid="hero-portrait-img"
+              />
+              {["top-3 left-3", "top-3 right-3", "bottom-16 left-3", "bottom-16 right-3"].map((pos) => (
+                <span key={pos} aria-hidden="true" className={`absolute ${pos} font-mono text-sm text-white mix-blend-difference select-none`}>+</span>
               ))}
-              <span className="block text-brand">→ {funnel[4]}</span>
-            </p>
-            <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin size={14} /> {profile.location}
-            </p>
+              <div className="absolute bottom-0 inset-x-0 bg-background/85 backdrop-blur border-t border-border px-4 py-3 flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="font-display text-sm font-bold tracking-tight truncate">{profile.name}</p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">UX/UI Project Lead</p>
+                </div>
+                <span className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-emerald-600 dark:text-emerald-400 shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  {t("hero.open")}
+                </span>
+              </div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, rotate: -8, scale: 0.9 }}
+              animate={{ opacity: 1, rotate: -3, scale: 1 }}
+              transition={{ delay: 1.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute -left-4 sm:-left-8 top-10 bg-background border border-border px-4 py-3 shadow-xl"
+            >
+              <p className="font-display text-2xl font-bold tracking-tight text-brand">7+</p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground max-w-[140px]">{factLabels[0]}</p>
+            </motion.div>
           </div>
         </motion.div>
       </div>
