@@ -3,21 +3,6 @@
 
 export const ADDITIONAL = [
   {
-    slug: "gabo",
-    title: "GABO",
-    client: "Alcaldía de Bogotá",
-    industry: "Culture / Public Sector",
-    role: "UX/UI Designer",
-    palette: { bg: "#3D2B1F", accent: "#E8A54B", ink: "#FBF3E7", soft: "#4E3828" },
-    variant: "editorial",
-    challenge: "Design objective: a digital cultural experience around the GABO initiative for Bogotá.",
-    contribution: "UX/UI design for the digital experience — structure, navigation and interface design for cultural content.",
-    disciplines: ["UX/UI Design", "Information Architecture", "Web Experience"],
-    context: "A cultural initiative of Alcaldía de Bogotá with rich editorial content that needed a clear, engaging digital home.",
-    process: "Content structuring, navigation design and interface design focused on readability and exploration.",
-    solution: "A content-led web experience designed around the material rather than around decoration.",
-  },
-  {
     slug: "datarips",
     title: "DataRips",
     client: "DataRips",
@@ -76,21 +61,6 @@ export const ADDITIONAL = [
     context: "MediQu offers non-scheduled medical services; people needed to find and request care quickly, by city, specialty and place of care.",
     process: "Search-first flow design, filter definition and responsive UI with clear primary actions.",
     solution: "A responsive website where requesting a medical service starts with three filters and one clear action.",
-  },
-  {
-    slug: "321-ignition",
-    title: "321 Ignition",
-    client: "321 Ignition",
-    industry: "Automotive / Digital",
-    role: "UX/UI Designer",
-    palette: { bg: "#231F20", accent: "#E63946", ink: "#F5F1EE", soft: "#332B2C" },
-    variant: "web",
-    challenge: "Design objective: a high-energy digital experience for an automotive product.",
-    contribution: "UX/UI design for web experience — structure, interaction and visual design.",
-    disciplines: ["UX/UI Design", "Web Experience", "Interaction Design"],
-    context: "An automotive digital product that needed to feel fast and remain usable.",
-    process: "Structure, interaction design and UI with strong visual rhythm.",
-    solution: "A web experience balancing brand energy with clear conversion-oriented flows.",
   },
 ];
 

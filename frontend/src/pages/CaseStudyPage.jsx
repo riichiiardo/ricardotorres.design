@@ -167,23 +167,39 @@ function FlagshipCaseStudy({ project, prev, next, t }) {
         </section>
       ))}
 
-      {PROJECT_MEDIA[project.slug]?.board && (
+      {(PROJECT_MEDIA[project.slug]?.board || PROJECT_MEDIA[project.slug]?.gallery) && (
         <section className="py-16 sm:py-20 border-b border-border" data-testid="case-board">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal className="mb-8">
-              <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">{t("case.figmaSource")}</p>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">{t("case.boardTitle")}</h2>
-              <p className="mt-3 text-sm text-muted-foreground max-w-2xl">{t("case.boardNote")}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">
+                {PROJECT_MEDIA[project.slug]?.board ? t("case.figmaSource") : t("case.screensTitle")}
+              </p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">
+                {PROJECT_MEDIA[project.slug]?.board ? t("case.boardTitle") : t("case.screensTitle")}
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
+                {PROJECT_MEDIA[project.slug]?.board ? t("case.boardNote") : t("case.screensNote")}
+              </p>
             </Reveal>
-            <Reveal>
-              <img
-                src={PROJECT_MEDIA[project.slug].board}
-                alt={`${project.title} — full project board from the Figma source`}
-                loading="lazy"
-                className="w-full border border-border"
-                data-testid="case-board-image"
-              />
-            </Reveal>
+            {PROJECT_MEDIA[project.slug]?.board ? (
+              <Reveal>
+                <img
+                  src={PROJECT_MEDIA[project.slug].board}
+                  alt={`${project.title} — full project board from the Figma source`}
+                  loading="lazy"
+                  className="w-full border border-border"
+                  data-testid="case-board-image"
+                />
+              </Reveal>
+            ) : (
+              <div className={`grid gap-4 ${PROJECT_MEDIA[project.slug].gallery.length > 2 ? "grid-cols-1 sm:grid-cols-3" : "grid-cols-1 sm:grid-cols-2"}`} data-testid="case-gallery">
+                {PROJECT_MEDIA[project.slug].gallery.map((src, i) => (
+                  <Reveal key={src} delay={i * 0.08}>
+                    <img src={src} alt={`${project.title} — product screen ${i + 1}`} loading="lazy" className="w-full border border-border" data-testid={`case-gallery-${i}`} />
+                  </Reveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}

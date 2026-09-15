@@ -33,16 +33,18 @@ Premium, editorial, high-credibility UX/UI + digital product design portfolio fo
 - Fixed: corrupted PostHog inline snippet in public/index.html (required frontend restart to clear dev-server cache).
 - Real Figma media integrated (2026-09-15): extracted via Figma REST API with user-provided read-only token (`/app/scripts/extract + process_figma_images.py`). Card crops + full project boards for Fundación Santa Fe, Telefónica, DataRips, MediQu, Wealth Ocean, Corporal Move in `public/images/projects/`; design-system boards (colors/typography/buttons) embedded in the FSFB case study. Media mapping in `src/data/media.js`; `ProjectVisual` falls back to CSS compositions for projects without Figma frames (Salud, Gobierno, GABO, 321 Ignition — no frames exist in the file).
 - Copy corrected to match Figma truth: FSFB = patient app (appointments, medical requests, diagnostic images, doctor search, family nucleus) led design team w/ Design Sprint + Design Thinking; Telefónica = internal mobile app for field installation technicians (HGU change tests, Broadband/TV/IP Voice verification); DataRips = RIPS/SIRHO landing; MediQu = <90min doctor finder with filters; Wealth Ocean = digital-currency investment education site; Corporal Move = conscious-movement school site.
+- Portfolio restructure (user request, 2026-09-15): removed Secretaría Distrital de Salud and Secretaría Distrital de Gobierno from the portfolio (no media to support them). New flagship set: 01 Fundación Santa Fe, 02 Telefónica, 03 GABO — Gobierno Abierto Bogotá (real Play Store screens + description from com.supercade listing), 04 321 Ignition — Overfuel (real product shots from overfuel.com). Additional work now 4 projects (DataRips, Corporal Move, Wealth Ocean, MediQu) in a 2×2 grid. Placeholder-only media blocks removed from case studies; `ProjectVisual` falls back to CSS compositions only where no real media exists. Case pages support `board` (Figma export) or `gallery` (live product screens) media sections.
 
 ## Pending / backlog
 - P0: Ricardo's portrait photo (Figma About Me frame has bio text but no usable portrait render — user to upload).
 - P0: Replace generated CV PDF with Ricardo's own CV file (user will upload).
 - P1: Enable email notifications (provision EMERGENT_EMAIL_KEY in backend/.env).
 - P1: Per-project Figma prototype "View prototype" links when valid URLs exist.
-- P2: GABO / 321 Ignition / Salud / Gobierno visuals if frames are ever added to the Figma file; Richi&Mapa project exists in Figma (wedding site) — could be added as a 7th additional project if Ricardo wants it.
+- P2: Richi&Mapa project exists in Figma (wedding site, real screens extracted) — could be added as a 5th additional project if Ricardo wants it.
 - P2: Custom domain ricardotorres.design + project subdomains.
 
 ## Verification notes
 - Homepage, case study pages, contact form API, CV download (HTTP 200) verified via screenshots + curl on preview URL.
 - ES/EN toggle verified on homepage, work grid, flagship case study (incl. synthesis labels), contact section; language persists across routes.
 - Real Figma images verified on work grid cards, FSFB case hero, full board section and design-system section (screenshots).
+- Reorganized flagships verified: GABO + 321 Ignition cards and case pages render with Play Store / Overfuel media galleries; additional grid shows 4 real projects; no leftover placeholder media blocks.

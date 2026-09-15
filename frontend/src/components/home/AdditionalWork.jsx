@@ -15,7 +15,7 @@ export default function AdditionalWork() {
           lead={t("add.lead")}
         />
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="additional-work-grid">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6" data-testid="additional-work-grid">
           {additional.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 3) * 0.08}>
               <a

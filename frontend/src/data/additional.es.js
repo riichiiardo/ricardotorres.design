@@ -2,21 +2,6 @@
 
 export const ADDITIONAL_ES = [
   {
-    slug: "gabo",
-    title: "GABO",
-    client: "Alcaldía de Bogotá",
-    industry: "Cultura / Sector Público",
-    role: "UX/UI Designer",
-    palette: { bg: "#3D2B1F", accent: "#E8A54B", ink: "#FBF3E7", soft: "#4E3828" },
-    variant: "editorial",
-    challenge: "Objetivo de diseño: una experiencia cultural digital alrededor de la iniciativa GABO para Bogotá.",
-    contribution: "Diseño UX/UI de la experiencia digital — estructura, navegación y diseño de interfaz para contenido cultural.",
-    disciplines: ["Diseño UX/UI", "Arquitectura de Información", "Experiencia Web"],
-    context: "Una iniciativa cultural de la Alcaldía de Bogotá con contenido editorial rico que necesitaba un hogar digital claro y atractivo.",
-    process: "Estructuración de contenido, diseño de navegación y diseño de interfaz enfocados en legibilidad y exploración.",
-    solution: "Una experiencia web guiada por el contenido, diseñada alrededor del material y no de la decoración.",
-  },
-  {
     slug: "datarips",
     title: "DataRips",
     client: "DataRips",
@@ -75,20 +60,5 @@ export const ADDITIONAL_ES = [
     context: "MediQu ofrece servicios médicos no agendados; las personas necesitaban encontrar y solicitar atención rápido, por ciudad, especialidad y lugar de atención.",
     process: "Diseño de flujo search-first, definición de filtros y UI responsive con acciones primarias claras.",
     solution: "Un sitio web responsive donde solicitar un servicio médico empieza con tres filtros y una acción clara.",
-  },
-  {
-    slug: "321-ignition",
-    title: "321 Ignition",
-    client: "321 Ignition",
-    industry: "Automoción / Digital",
-    role: "UX/UI Designer",
-    palette: { bg: "#231F20", accent: "#E63946", ink: "#F5F1EE", soft: "#332B2C" },
-    variant: "web",
-    challenge: "Objetivo de diseño: una experiencia digital de alta energía para un producto automotriz.",
-    contribution: "Diseño UX/UI de la experiencia web — estructura, interacción y diseño visual.",
-    disciplines: ["Diseño UX/UI", "Experiencia Web", "Diseño de Interacción"],
-    context: "Un producto digital automotriz que necesitaba sentirse rápido y seguir siendo usable.",
-    process: "Estructura, diseño de interacción y UI con un ritmo visual fuerte.",
-    solution: "Una experiencia web que equilibra la energía de marca con flujos claros orientados a conversión.",
   },
 ];

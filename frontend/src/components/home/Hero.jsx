@@ -5,7 +5,7 @@ import { MaskedLines } from "../Reveal";
 import { useLang } from "../../i18n/LanguageContext";
 import { scrollToHash } from "../Header";
 
-const FACT_VALUES = ["7+", "04", "10", "14"];
+const FACT_VALUES = ["7+", "04", "08", "14"];
 
 export default function Hero() {
   const ref = useRef(null);
