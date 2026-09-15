@@ -31,14 +31,18 @@ Premium, editorial, high-credibility UX/UI + digital product design portfolio fo
 - Generated ATS-friendly CV PDF + /cv online view; light/dark mode; lenis scrolling; responsive; data-testids.
 - Full ES/EN language toggle (header button, persisted in localStorage): all UI chrome, homepage sections, all 4 flagship case studies, 6 additional projects, CV page — via `src/i18n/LanguageContext.jsx`, `src/i18n/ui.js`, `src/data/site.es.js`, `src/data/flagships.es.js`, `src/data/additional.es.js`.
 - Fixed: corrupted PostHog inline snippet in public/index.html (required frontend restart to clear dev-server cache).
+- Real Figma media integrated (2026-09-15): extracted via Figma REST API with user-provided read-only token (`/app/scripts/extract + process_figma_images.py`). Card crops + full project boards for Fundación Santa Fe, Telefónica, DataRips, MediQu, Wealth Ocean, Corporal Move in `public/images/projects/`; design-system boards (colors/typography/buttons) embedded in the FSFB case study. Media mapping in `src/data/media.js`; `ProjectVisual` falls back to CSS compositions for projects without Figma frames (Salud, Gobierno, GABO, 321 Ignition — no frames exist in the file).
+- Copy corrected to match Figma truth: FSFB = patient app (appointments, medical requests, diagnostic images, doctor search, family nucleus) led design team w/ Design Sprint + Design Thinking; Telefónica = internal mobile app for field installation technicians (HGU change tests, Broadband/TV/IP Voice verification); DataRips = RIPS/SIRHO landing; MediQu = <90min doctor finder with filters; Wealth Ocean = digital-currency investment education site; Corporal Move = conscious-movement school site.
 
 ## Pending / backlog
-- P0: Swap placeholder visuals + portrait with real Figma exports and Ricardo's photo — BLOCKED: Figma link requires login (verified twice); need public link or uploaded exports from user.
+- P0: Ricardo's portrait photo (Figma About Me frame has bio text but no usable portrait render — user to upload).
 - P0: Replace generated CV PDF with Ricardo's own CV file (user will upload).
 - P1: Enable email notifications (provision EMERGENT_EMAIL_KEY in backend/.env).
 - P1: Per-project Figma prototype "View prototype" links when valid URLs exist.
-- P2: Case-study rich media (galleries, artifact imagery), custom domain ricardotorres.design + project subdomains.
+- P2: GABO / 321 Ignition / Salud / Gobierno visuals if frames are ever added to the Figma file; Richi&Mapa project exists in Figma (wedding site) — could be added as a 7th additional project if Ricardo wants it.
+- P2: Custom domain ricardotorres.design + project subdomains.
 
 ## Verification notes
 - Homepage, case study pages, contact form API, CV download (HTTP 200) verified via screenshots + curl on preview URL.
 - ES/EN toggle verified on homepage, work grid, flagship case study (incl. synthesis labels), contact section; language persists across routes.
+- Real Figma images verified on work grid cards, FSFB case hero, full board section and design-system section (screenshots).

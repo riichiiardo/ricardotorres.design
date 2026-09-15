@@ -112,6 +112,9 @@ export const UI = {
     "ins.insight": "Insight",
     "ins.opportunity": "Opportunity",
     "ins.principle": "Principle",
+    "case.figmaSource": "Figma source",
+    "case.boardTitle": "The project board — straight from the Figma source",
+    "case.boardNote": "Full case board exported from the original portfolio file: real screens, real narrative.",
   },
   es: {
     "nav.home": "Inicio",
@@ -226,5 +229,8 @@ export const UI = {
     "ins.insight": "Insight",
     "ins.opportunity": "Oportunidad",
     "ins.principle": "Principio",
+    "case.figmaSource": "Fuente Figma",
+    "case.boardTitle": "El tablero del proyecto — directo desde la fuente en Figma",
+    "case.boardNote": "Tablero completo exportado del archivo original del portafolio: pantallas reales, narrativa real.",
   },
 };

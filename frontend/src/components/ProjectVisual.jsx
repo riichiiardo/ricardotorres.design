@@ -1,3 +1,5 @@
+import { PROJECT_MEDIA } from "../data/media";
+
 // CSS-composed project visuals. These are illustrative compositions standing in
 // for Figma exports (the source prototype requires login) — swap with real
 // project screens when available.
@@ -213,6 +215,19 @@ const Web = ({ p }) => (
 const VARIANTS = { ecosystem: Ecosystem, ops: Ops, dataviz: Dataviz, voice: Voice, editorial: Editorial, mobile: Mobile, web: Web };
 
 export default function ProjectVisual({ variant = "web", palette, slug, ratio = "aspect-[16/10]" }) {
+  const media = PROJECT_MEDIA[slug];
+  if (media?.card) {
+    return (
+      <div data-testid={`project-visual-${slug}`} className={`overflow-hidden ${ratio}`}>
+        <img
+          src={media.card}
+          alt={`Real project screens from the Figma source — ${slug}`}
+          className="w-full h-full object-cover object-top"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
   const V = VARIANTS[variant] || Web;
   return (
     <div data-testid={`project-visual-${slug}`} className={`overflow-hidden ${ratio}`} role="img" aria-label="Illustrative project composition (placeholder for Figma export)">

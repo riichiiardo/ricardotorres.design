@@ -13,11 +13,11 @@ export const FLAGSHIPS_ES = [
     variant: "ecosystem",
     tagline: "Diseñando consistencia en un ecosistema de salud complejo.",
     challenge:
-      "Múltiples puntos de contacto digitales — experiencias web, aplicaciones móviles y flujos de autoservicio — habían crecido de forma independiente, haciendo la experiencia fragmentada para los pacientes y difícil de evolucionar para los equipos.",
+      "Los pacientes necesitaban gestionar citas, solicitudes médicas e imágenes diagnósticas desde el celular — incluyendo la búsqueda de médicos por especialidad y la misma gestión para su núcleo familiar.",
     approach:
-      "Investigación UX y pruebas de usabilidad para entender el comportamiento real de los pacientes, seguidas de un sistema de diseño y patrones de interacción compartidos entre productos.",
+      "Liderazgo del equipo de diseño usando metodologías UX — entrevistas, actividades de Design Thinking, prototipado y testeo constante — con una estrategia construida sobre Design Sprint y Design Thinking, apoyada en un sistema de diseño para la consistencia entre productos.",
     result:
-      "Un ecosistema de producto más consistente y orientado al autoservicio, con componentes reutilizables y recorridos más claros — validado iterativamente con UXCam, Hotjar y Maze. (Resultado cualitativo — sin métricas inventadas.)",
+      "Una app de pacientes que cubre citas, pagos, búsqueda de médicos y gestión familiar, complementada con una vista web de consulta de historia clínica. (Resultado cualitativo — narrativa de la fuente en Figma.)",
     snapshot: [
       { label: "Rol", value: "UX/UI Project Lead" },
       { label: "Equipo", value: "Equipo de producto multidisciplinario — diseño, ingeniería, negocio" },
@@ -148,6 +148,7 @@ export const FLAGSHIPS_ES = [
           "Color, tipografía, espaciado, botones, formularios, tarjetas y navegación se definieron como tokens y componentes con estados documentados — para que cualquier equipo pudiera ensamblar experiencias consistentes sin rediseñar los fundamentos.",
           "El sistema se estructuró alrededor de la realidad del ecosistema: múltiples productos, múltiples equipos, un solo paciente. Por eso las reglas de consistencia y la guía de uso importaron tanto como los componentes mismos.",
         ],
+        images: ["/images/projects/design-system-colors.jpg", "/images/projects/design-system-typography.jpg"],
       },
       {
         type: "loop",
@@ -205,16 +206,16 @@ export const FLAGSHIPS_ES = [
     client: "Telefónica / Movistar",
     industry: "Telecomunicaciones",
     role: "Diseñador de Producto Digital — Gestión Técnica de Proyectos",
-    platform: "Aplicación Web & Sistema de Diseño",
+    platform: "App móvil (técnicos de campo) & Sistema de Diseño",
     palette: { bg: "#032F5E", accent: "#019DF4", ink: "#E9F4FE", soft: "#0A4178" },
     variant: "ops",
     tagline: "UX operacional para las personas que conectan los hogares.",
     challenge:
-      "La instalación y validación de servicios del hogar dependía de herramientas web usadas por técnicos de campo en condiciones exigentes — flujos operacionales complejos donde la confusión cuesta tiempo frente al cliente.",
+      "Los técnicos que instalan internet y televisión en los hogares necesitaban una aplicación móvil interna que reflejara con exactitud cómo fue la instalación y verificara que todo quede en orden dentro del contrato.",
     approach:
-      "Entender el flujo de trabajo de campo de punta a punta, simplificar la interfaz operacional alrededor de la secuencia real de tareas del técnico y mantener todo el producto consistente mediante un sistema de diseño.",
+      "Diseñar flujos que verifican la viabilidad y estabilidad de Banda Ancha, Televisión y Voz IP — pruebas de cambio de HGU, registros de firmware, verificación de WiFi y servicios — lo más ágiles posible, porque el tiempo del técnico en el hogar del cliente es corto.",
     result:
-      "Flujos operacionales más claros para instalación y validación de servicios, con monitoreo de usabilidad para seguir mejorando después de la entrega. (Resultado cualitativo.)",
+      "Una app móvil de validación para instalaciones de campo — pruebas de cambio de HGU, verificación de servicio y WiFi — diseñada para rapidez y claridad en sitio, consistente gracias a un sistema de diseño compartido. (Resultado cualitativo — narrativa de la fuente en Figma.)",
     snapshot: [
       { label: "Rol", value: "Diseñador de Producto Digital & Gestión Técnica de Proyectos" },
       { label: "Equipo", value: "Operaciones, técnicos de campo, ingeniería, stakeholders de negocio" },

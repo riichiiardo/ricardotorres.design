@@ -14,11 +14,11 @@ export const FLAGSHIPS = [
     variant: "ecosystem",
     tagline: "Designing consistency across a complex healthcare ecosystem.",
     challenge:
-      "Multiple digital touchpoints — website experiences, mobile applications and self-service flows — had grown independently, making the experience feel fragmented to patients and hard to evolve for teams.",
+      "Patients needed to manage appointments, medical requests and diagnostic images from their phones — including searching for doctors by specialty and doing the same management for their family nucleus.",
     approach:
-      "UX research and usability testing to understand real patient behavior, followed by a design system and shared interaction patterns that could carry across products.",
+      "Design team leadership using UX methodologies — interviews, Design Thinking activities, prototyping and constant testing — with a strategy built on Design Sprint and Design Thinking, supported by a design system for consistency across products.",
     result:
-      "A more consistent, self-service oriented product ecosystem with reusable components and clearer journeys — validated iteratively with UXCam, Hotjar and Maze. (Qualitative outcome — no fabricated metrics.)",
+      "A patient app covering appointments, payments, doctor search and family management, complemented by a web view for clinical-history consultation. (Qualitative outcome — Figma source narrative.)",
     snapshot: [
       { label: "Role", value: "UX/UI Project Lead" },
       { label: "Team", value: "Cross-functional product team — design, engineering, business" },
@@ -149,6 +149,7 @@ export const FLAGSHIPS = [
           "Color, typography, spacing, buttons, forms, cards and navigation were defined as tokens and components with documented states — so any team could assemble consistent experiences without redesigning fundamentals.",
           "The system was structured around the ecosystem's reality: multiple products, multiple teams, one patient. That is why consistency rules and usage guidance mattered as much as the components themselves.",
         ],
+        images: ["/images/projects/design-system-colors.jpg", "/images/projects/design-system-typography.jpg"],
       },
       {
         type: "loop",
@@ -206,16 +207,16 @@ export const FLAGSHIPS = [
     client: "Telefónica / Movistar",
     industry: "Telecommunications",
     role: "Digital Product Designer — Technical Project Management",
-    platform: "Web Application & Design System",
+    platform: "Mobile app (field technicians) & Design System",
     palette: { bg: "#032F5E", accent: "#019DF4", ink: "#E9F4FE", soft: "#0A4178" },
     variant: "ops",
     tagline: "Operational UX for the people who connect homes.",
     challenge:
-      "Home service installation and validation depended on web tools used by field technicians in demanding conditions — complex operational workflows where confusion costs time in front of the customer.",
+      "Technicians performing home internet and TV installations needed an internal mobile app that accurately reflects how the installation went and verifies that everything is in order within the contract.",
     approach:
-      "Understand the field workflow end-to-end, simplify the operational interface around the technician's real sequence of tasks, and keep the whole product consistent through a design system.",
+      "Design flows that verify the viability and stability of Broadband, TV and IP Voice — HGU change tests, firmware registers, WiFi and service checks — as agile as possible, because the time a technician spends at the client's home is short.",
     result:
-      "Clearer operational workflows for installation and service validation, with usability monitoring to keep improving after delivery. (Qualitative outcome.)",
+      "A mobile validation app for field installations — HGU change tests, service and WiFi verification — designed for speed and clarity on-site, consistent through a shared design system. (Qualitative outcome — Figma source narrative.)",
     snapshot: [
       { label: "Role", value: "Digital Product Designer & Technical Project Management" },
       { label: "Team", value: "Operations, field technicians, engineering, business stakeholders" },

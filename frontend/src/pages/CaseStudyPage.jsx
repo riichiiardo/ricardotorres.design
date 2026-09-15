@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import ProjectVisual from "../components/ProjectVisual";
 import { useLang } from "../i18n/LanguageContext";
+import { PROJECT_MEDIA } from "../data/media";
 
 const SectionText = ({ s }) => (
   <div className="max-w-3xl">
@@ -15,6 +16,13 @@ const SectionText = ({ s }) => (
       <p className="mt-8 font-display text-xl sm:text-2xl font-semibold tracking-tight leading-snug border-l-2 border-brand pl-6">
         {s.statement}
       </p>
+    )}
+    {s.images && (
+      <div className="mt-8 space-y-4">
+        {s.images.map((src) => (
+          <img key={src} src={src} alt="Design system artifact from the Figma source" loading="lazy" className="w-full border border-border" />
+        ))}
+      </div>
     )}
   </div>
 );
@@ -159,6 +167,27 @@ function FlagshipCaseStudy({ project, prev, next, t }) {
         </section>
       ))}
 
+      {PROJECT_MEDIA[project.slug]?.board && (
+        <section className="py-16 sm:py-20 border-b border-border" data-testid="case-board">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Reveal className="mb-8">
+              <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">{t("case.figmaSource")}</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">{t("case.boardTitle")}</h2>
+              <p className="mt-3 text-sm text-muted-foreground max-w-2xl">{t("case.boardNote")}</p>
+            </Reveal>
+            <Reveal>
+              <img
+                src={PROJECT_MEDIA[project.slug].board}
+                alt={`${project.title} — full project board from the Figma source`}
+                loading="lazy"
+                className="w-full border border-border"
+                data-testid="case-board-image"
+              />
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       <section className="py-16 sm:py-20 border-b border-border" data-testid="case-contribution">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-8">
@@ -254,6 +283,25 @@ function LightCaseStudy({ project, prev, next, t }) {
           </Reveal>
         </div>
       </section>
+      {PROJECT_MEDIA[project.slug]?.board && (
+        <section className="py-14 border-b border-border" data-testid="case-board">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Reveal className="mb-8">
+              <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">{t("case.figmaSource")}</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">{t("case.boardTitle")}</h2>
+            </Reveal>
+            <Reveal>
+              <img
+                src={PROJECT_MEDIA[project.slug].board}
+                alt={`${project.title} — full project board from the Figma source`}
+                loading="lazy"
+                className="w-full border border-border"
+                data-testid="case-board-image"
+              />
+            </Reveal>
+          </div>
+        </section>
+      )}
       <ProjectNav prev={prev} next={next} t={t} />
     </>
   );
