@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Reveal, SectionHead } from "../Reveal";
 import ProjectVisual from "../ProjectVisual";
 import { useLang } from "../../i18n/LanguageContext";
@@ -18,8 +19,8 @@ export default function AdditionalWork() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6" data-testid="additional-work-grid">
           {additional.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 3) * 0.08}>
-              <a
-                href={`/work/${p.slug}`}
+              <Link
+                to={`/work/${p.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`additional-card-${p.slug}`}
@@ -46,7 +47,7 @@ export default function AdditionalWork() {
                   </div>
                   <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.15em] text-brand">{t("add.viewProject")}</p>
                 </div>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>

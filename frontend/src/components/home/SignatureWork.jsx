@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Reveal, SectionHead } from "../Reveal";
 import ProjectVisual from "../ProjectVisual";
 import { useLang } from "../../i18n/LanguageContext";
@@ -20,8 +21,8 @@ export default function SignatureWork() {
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-6">
           {flagships.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.1} className={`col-span-1 ${SPANS[i]}`}>
-              <a
-                href={`/work/${p.slug}`}
+              <Link
+                to={`/work/${p.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`signature-card-${p.slug}`}
@@ -49,7 +50,7 @@ export default function SignatureWork() {
                     <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-brand ml-auto">{t("work.viewCase")}</span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>
