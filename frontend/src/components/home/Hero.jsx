@@ -26,7 +26,7 @@ export default function Hero() {
             className="flex items-center gap-3 mb-7"
           >
             <img
-              src="/images/ricardo-portrait.jpg"
+              src={`${process.env.PUBLIC_URL || ""}/images/ricardo-portrait.jpg`}
               alt=""
               className="w-10 h-10 rounded-full object-cover border border-border"
               data-testid="hero-avatar"
@@ -116,7 +116,7 @@ export default function Hero() {
             <div className="absolute inset-0 translate-x-4 translate-y-4 bg-brand" aria-hidden="true" />
             <div className="relative border border-foreground/25 bg-card aspect-[4/5] overflow-hidden">
               <img
-                src="/images/ricardo-portrait.jpg"
+                src={`${process.env.PUBLIC_URL || ""}/images/ricardo-portrait.jpg`}
                 alt="Ricardo Andrei Torres Medina — UX/UI Project Lead"
                 className="w-full h-full object-cover"
                 data-testid="hero-portrait-img"

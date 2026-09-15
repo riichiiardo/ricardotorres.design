@@ -5,7 +5,14 @@ import { ArrowRight, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { Reveal, SectionHead } from "../Reveal";
 import { useLang } from "../../i18n/LanguageContext";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = process.env.REACT_APP_BACKEND_URL
+  ? `${process.env.REACT_APP_BACKEND_URL}/api`
+  : null;
+
+const mailtoHref = (f) =>
+  `mailto:ricardo_torres612@hotmail.com?subject=${encodeURIComponent(
+    `Portfolio enquiry — ${f.name}${f.company ? ` (${f.company})` : ""}`
+  )}&body=${encodeURIComponent(`${f.message}\n\n— ${f.name} (${f.email})`)}`;
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
@@ -18,8 +25,14 @@ export default function ContactSection() {
     e.preventDefault();
     setSending(true);
     try {
-      await axios.post(`${API}/contact`, form);
-      toast.success(t("form.success"));
+      if (!API) {
+        // Static deployment (GitHub Pages): no backend — open the visitor's mail client.
+        window.location.href = mailtoHref(form);
+        toast.success(t("form.success"));
+      } else {
+        await axios.post(`${API}/contact`, form);
+        toast.success(t("form.success"));
+      }
       setForm({ name: "", email: "", company: "", message: "" });
     } catch {
       toast.error(t("form.error"));

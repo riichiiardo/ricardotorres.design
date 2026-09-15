@@ -3,7 +3,7 @@
 // dedicated Figma frame (salud, gobierno, gabo, 321-ignition) keep the
 // CSS-composed placeholder visuals.
 
-const P = "/images/projects";
+const P = `${process.env.PUBLIC_URL || ""}/images/projects`;
 
 export const PROJECT_MEDIA = {
   "fundacion-santa-fe": { card: `${P}/fundacion-santa-fe-card.jpg`, board: `${P}/fundacion-santa-fe-board.jpg` },

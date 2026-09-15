@@ -9,7 +9,7 @@ export const PROFILE = {
   emailHref: "mailto:ricardo_torres612@hotmail.com",
   linkedin: "https://www.linkedin.com/in/riichiiardo",
   linkedinLabel: "linkedin.com/in/riichiiardo",
-  cvFile: "/Ricardo_Torres_UX_UI_Project_Lead_CV.pdf",
+  cvFile: `${process.env.PUBLIC_URL || ""}/Ricardo_Torres_UX_UI_Project_Lead_CV.pdf`,
 };
 
 export const EXPERTISE_LINE = [

@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App min-h-screen bg-background text-foreground">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL || "/"}>
         <LanguageProvider>
           <ScrollManager />
           <Header />

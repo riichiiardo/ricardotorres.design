@@ -37,7 +37,7 @@ export default function Header() {
       navigate("/" + hash);
     } else {
       scrollToHash(hash === "#top" ? "body" : hash);
-      window.history.replaceState(null, "", hash === "#top" ? "/" : "/" + hash);
+      window.history.replaceState(null, "", (process.env.PUBLIC_URL || "") + (hash === "#top" ? "/" : "/" + hash));
     }
   };
 

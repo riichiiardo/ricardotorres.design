@@ -34,7 +34,7 @@ export default function AboutSection() {
           <Reveal delay={0.15}>
             <div className="border border-border bg-card aspect-[4/5] relative overflow-hidden group" data-testid="about-portrait-frame">
               <img
-                src="/images/ricardo-portrait.jpg"
+                src={`${process.env.PUBLIC_URL || ""}/images/ricardo-portrait.jpg`}
                 alt="Ricardo Andrei Torres Medina — UX/UI Project Lead"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 loading="lazy"
