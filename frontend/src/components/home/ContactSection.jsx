@@ -3,13 +3,14 @@ import axios from "axios";
 import { toast } from "sonner";
 import { ArrowRight, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { Reveal, SectionHead } from "../Reveal";
-import { PROFILE } from "../../data/site";
+import { useLang } from "../../i18n/LanguageContext";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [sending, setSending] = useState(false);
+  const { profile, t } = useLang();
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
@@ -18,10 +19,10 @@ export default function ContactSection() {
     setSending(true);
     try {
       await axios.post(`${API}/contact`, form);
-      toast.success("Message sent — thank you. Ricardo will get back to you.");
+      toast.success(t("form.success"));
       setForm({ name: "", email: "", company: "", message: "" });
     } catch {
-      toast.error("Could not send right now — please use the email button instead.");
+      toast.error(t("form.error"));
     } finally {
       setSending(false);
     }
@@ -34,9 +35,9 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHead
           id="contact"
-          overline="Contact"
-          title="Let's design something meaningful."
-          lead="Whether you are building a new digital product, improving an existing experience or navigating a complex design challenge, I'd be happy to talk."
+          overline={t("contact.overline")}
+          title={t("contact.title")}
+          lead={t("contact.lead")}
         />
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -44,8 +45,8 @@ export default function ContactSection() {
             <form onSubmit={submit} className="border border-border bg-card p-6 sm:p-8 space-y-5" data-testid="contact-form">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="cf-name" className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-2">Name *</label>
-                  <input id="cf-name" data-testid="contact-name-input" required value={form.name} onChange={set("name")} className={inputCls} placeholder="Your name" />
+                  <label htmlFor="cf-name" className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-2">{t("form.name")} *</label>
+                  <input id="cf-name" data-testid="contact-name-input" required value={form.name} onChange={set("name")} className={inputCls} placeholder={t("form.namePh")} />
                 </div>
                 <div>
                   <label htmlFor="cf-email" className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-2">Email *</label>
@@ -53,12 +54,12 @@ export default function ContactSection() {
                 </div>
               </div>
               <div>
-                <label htmlFor="cf-company" className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-2">Company / project</label>
-                <input id="cf-company" data-testid="contact-company-input" value={form.company} onChange={set("company")} className={inputCls} placeholder="Optional" />
+                <label htmlFor="cf-company" className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-2">{t("form.company")}</label>
+                <input id="cf-company" data-testid="contact-company-input" value={form.company} onChange={set("company")} className={inputCls} placeholder={t("form.companyPh")} />
               </div>
               <div>
-                <label htmlFor="cf-message" className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-2">Message *</label>
-                <textarea id="cf-message" data-testid="contact-message-input" required rows={5} value={form.message} onChange={set("message")} className={inputCls} placeholder="Tell me about the problem you're trying to solve…" />
+                <label htmlFor="cf-message" className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground block mb-2">{t("form.message")} *</label>
+                <textarea id="cf-message" data-testid="contact-message-input" required rows={5} value={form.message} onChange={set("message")} className={inputCls} placeholder={t("form.messagePh")} />
               </div>
               <button
                 type="submit"
@@ -66,7 +67,7 @@ export default function ContactSection() {
                 data-testid="contact-submit-btn"
                 className="group inline-flex items-center gap-3 bg-foreground text-background px-7 py-4 text-xs font-mono uppercase tracking-[0.18em] hover:bg-brand hover:text-white transition-colors disabled:opacity-50"
               >
-                {sending ? "Sending…" : "Start a conversation"}
+                {sending ? t("form.sending") : t("form.submit")}
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
               </button>
             </form>
@@ -77,30 +78,30 @@ export default function ContactSection() {
               <ul className="space-y-5 text-sm">
                 <li className="flex items-center gap-3">
                   <MapPin size={16} className="text-brand shrink-0" />
-                  <span>{PROFILE.location}</span>
+                  <span>{profile.location}</span>
                 </li>
                 <li>
-                  <a data-testid="contact-phone-link" href={PROFILE.phoneHref} className="flex items-center gap-3 hover:text-brand transition-colors">
-                    <Phone size={16} className="text-brand shrink-0" /> {PROFILE.phone}
+                  <a data-testid="contact-phone-link" href={profile.phoneHref} className="flex items-center gap-3 hover:text-brand transition-colors">
+                    <Phone size={16} className="text-brand shrink-0" /> {profile.phone}
                   </a>
                 </li>
                 <li>
-                  <a data-testid="contact-email-link" href={PROFILE.emailHref} className="flex items-center gap-3 hover:text-brand transition-colors break-all">
-                    <Mail size={16} className="text-brand shrink-0" /> {PROFILE.email}
+                  <a data-testid="contact-email-link" href={profile.emailHref} className="flex items-center gap-3 hover:text-brand transition-colors break-all">
+                    <Mail size={16} className="text-brand shrink-0" /> {profile.email}
                   </a>
                 </li>
               </ul>
               <div className="space-y-3">
                 <a
                   data-testid="contact-mailto-btn"
-                  href={PROFILE.emailHref}
+                  href={profile.emailHref}
                   className="flex items-center justify-center gap-2 border border-foreground/30 px-6 py-3.5 text-xs font-mono uppercase tracking-[0.18em] hover:border-brand hover:text-brand transition-colors"
                 >
-                  <Mail size={14} /> Email directly
+                  <Mail size={14} /> {t("contact.emailDirect")}
                 </a>
                 <a
                   data-testid="contact-linkedin-btn"
-                  href={PROFILE.linkedin}
+                  href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 border border-foreground/30 px-6 py-3.5 text-xs font-mono uppercase tracking-[0.18em] hover:border-brand hover:text-brand transition-colors"

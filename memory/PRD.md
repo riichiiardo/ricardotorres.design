@@ -29,13 +29,16 @@ Premium, editorial, high-credibility UX/UI + digital product design portfolio fo
 - CSS-composed project visuals (placeholders clearly labeled; swap with Figma exports when available).
 - Contact API storing to MongoDB + email notification path (pending EMERGENT_EMAIL_KEY).
 - Generated ATS-friendly CV PDF + /cv online view; light/dark mode; lenis scrolling; responsive; data-testids.
+- Full ES/EN language toggle (header button, persisted in localStorage): all UI chrome, homepage sections, all 4 flagship case studies, 6 additional projects, CV page — via `src/i18n/LanguageContext.jsx`, `src/i18n/ui.js`, `src/data/site.es.js`, `src/data/flagships.es.js`, `src/data/additional.es.js`.
+- Fixed: corrupted PostHog inline snippet in public/index.html (required frontend restart to clear dev-server cache).
 
 ## Pending / backlog
-- P0: Swap placeholder visuals + portrait with real Figma exports and Ricardo's photo (need public Figma access or uploaded assets).
+- P0: Swap placeholder visuals + portrait with real Figma exports and Ricardo's photo — BLOCKED: Figma link requires login (verified twice); need public link or uploaded exports from user.
 - P0: Replace generated CV PDF with Ricardo's own CV file (user will upload).
 - P1: Enable email notifications (provision EMERGENT_EMAIL_KEY in backend/.env).
 - P1: Per-project Figma prototype "View prototype" links when valid URLs exist.
-- P2: Case-study rich media (galleries, artifact imagery), Spanish/English toggle, custom domain ricardotorres.design + project subdomains.
+- P2: Case-study rich media (galleries, artifact imagery), custom domain ricardotorres.design + project subdomains.
 
 ## Verification notes
 - Homepage, case study pages, contact form API, CV download (HTTP 200) verified via screenshots + curl on preview URL.
+- ES/EN toggle verified on homepage, work grid, flagship case study (incl. synthesis labels), contact section; language persists across routes.

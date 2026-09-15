@@ -3,6 +3,7 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import { Toaster } from "sonner";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
@@ -39,14 +40,16 @@ function App() {
   return (
     <div className="App min-h-screen bg-background text-foreground">
       <BrowserRouter>
-        <ScrollManager />
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/work/:slug" element={<CaseStudyPage />} />
-          <Route path="/cv" element={<CVPage />} />
-        </Routes>
-        <Footer />
+        <LanguageProvider>
+          <ScrollManager />
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/work/:slug" element={<CaseStudyPage />} />
+            <Route path="/cv" element={<CVPage />} />
+          </Routes>
+          <Footer />
+        </LanguageProvider>
       </BrowserRouter>
       <Toaster position="bottom-right" toastOptions={{ style: { borderRadius: 0 } }} />
     </div>

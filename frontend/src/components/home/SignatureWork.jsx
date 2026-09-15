@@ -1,23 +1,24 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, SectionHead } from "../Reveal";
 import ProjectVisual from "../ProjectVisual";
-import { FLAGSHIPS } from "../../data/flagships";
+import { useLang } from "../../i18n/LanguageContext";
 
 const SPANS = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
 
 export default function SignatureWork() {
+  const { flagships, t } = useLang();
   return (
     <section id="work" data-testid="signature-work-section" className="py-24 sm:py-32 border-t border-border scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHead
           id="selected-work"
-          overline="Signature case studies"
-          title="Selected work"
-          lead="A selection of projects where research, product thinking and design come together to solve complex problems. Each case study opens in a new tab."
+          overline={t("work.overline")}
+          title={t("work.title")}
+          lead={t("work.lead")}
         />
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {FLAGSHIPS.map((p, i) => (
+          {flagships.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.1} className={`col-span-1 ${SPANS[i]}`}>
               <a
                 href={`/work/${p.slug}`}
@@ -45,7 +46,7 @@ export default function SignatureWork() {
                   <p className="mt-4 text-sm text-muted-foreground leading-relaxed line-clamp-2">{p.challenge}</p>
                   <div className="mt-5 flex flex-wrap items-center gap-2">
                     <span className="font-mono text-[10px] uppercase tracking-[0.15em] border border-border px-2.5 py-1 text-muted-foreground">{p.role.split("—")[0].trim()}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-brand ml-auto">View case study →</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-brand ml-auto">{t("work.viewCase")}</span>
                   </div>
                 </div>
               </a>

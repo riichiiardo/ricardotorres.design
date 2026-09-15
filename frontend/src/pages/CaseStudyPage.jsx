@@ -4,8 +4,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import ProjectVisual from "../components/ProjectVisual";
-import { FLAGSHIPS } from "../data/flagships";
-import { ADDITIONAL } from "../data/additional";
+import { useLang } from "../i18n/LanguageContext";
 
 const SectionText = ({ s }) => (
   <div className="max-w-3xl">
@@ -34,14 +33,16 @@ const SectionSteps = ({ s, numbered = true }) => (
   </div>
 );
 
-const SectionInsights = ({ s }) => (
+const SectionInsights = ({ s }) => {
+  const { t } = useLang();
+  return (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border">
     {s.items.map((it, i) => (
       <div key={i} className="bg-background p-6 space-y-4">
         {["observation", "insight", "opportunity", "principle"].map((k, j) => (
           <div key={k}>
             <p className={`font-mono text-[9px] uppercase tracking-[0.2em] ${k === "principle" ? "text-brand" : "text-muted-foreground/70"}`}>
-              {k}{j < 3 ? " ↓" : ""}
+              {t("ins." + k)}{j < 3 ? " ↓" : ""}
             </p>
             <p className={`mt-1 text-sm leading-relaxed ${k === "principle" ? "font-display font-semibold text-foreground" : "text-muted-foreground"}`}>
               {it[k]}
@@ -51,7 +52,8 @@ const SectionInsights = ({ s }) => (
       </div>
     ))}
   </div>
-);
+  );
+};
 
 const SectionColumns = ({ s }) => (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -64,14 +66,14 @@ const SectionColumns = ({ s }) => (
   </div>
 );
 
-function FlagshipCaseStudy({ project, prev, next }) {
+function FlagshipCaseStudy({ project, prev, next, t }) {
   return (
     <>
       <section className="pt-32 pb-16 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium">
-              Case study {project.number} — {project.industry}
+              {t("case.caseStudy")} {project.number} — {project.industry}
             </p>
             <h1 className="mt-4 font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] max-w-4xl">
               {project.title}
@@ -81,10 +83,10 @@ function FlagshipCaseStudy({ project, prev, next }) {
 
           <Reveal delay={0.1} className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border" data-testid="case-meta-grid">
             {[
-              ["Client", project.client],
-              ["Role", project.role],
-              ["Platform", project.platform],
-              ["Industry", project.industry],
+              [t("case.client"), project.client],
+              [t("case.role"), project.role],
+              [t("case.platform"), project.platform],
+              [t("case.industry"), project.industry],
             ].map(([k, v]) => (
               <div key={k} className="bg-background p-5">
                 <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/70">{k}</p>
@@ -99,9 +101,9 @@ function FlagshipCaseStudy({ project, prev, next }) {
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border" data-testid="case-summary-grid">
             {[
-              ["The challenge", project.challenge],
-              ["The approach", project.approach],
-              ["The result", project.result],
+              [t("case.challenge"), project.challenge],
+              [t("case.approach"), project.approach],
+              [t("case.result"), project.result],
             ].map(([k, v], i) => (
               <Reveal key={k} delay={i * 0.08} className="bg-background p-6 sm:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand">{k}</p>
@@ -115,7 +117,7 @@ function FlagshipCaseStudy({ project, prev, next }) {
       <section className="py-16 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <h2 className="font-display text-2xl font-bold tracking-tight mb-8">Project snapshot</h2>
+            <h2 className="font-display text-2xl font-bold tracking-tight mb-8">{t("case.snapshot")}</h2>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border" data-testid="case-snapshot-grid">
             {project.snapshot.map((s, i) => (
@@ -135,7 +137,7 @@ function FlagshipCaseStudy({ project, prev, next }) {
               <Reveal>
                 <ProjectVisual variant={s.variant} palette={project.palette} slug={`${project.slug}-detail`} ratio="aspect-[16/8]" />
                 <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70">
-                  Illustrative composition — final UI screens will be placed from the Figma source
+                  {t("case.visualNote")}
                 </p>
               </Reveal>
             ) : (
@@ -160,12 +162,12 @@ function FlagshipCaseStudy({ project, prev, next }) {
       <section className="py-16 sm:py-20 border-b border-border" data-testid="case-contribution">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-8">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">My contribution</p>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">What I owned — and what we owned together</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">{t("case.contribution")}</p>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">{t("case.contributionTitle")}</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Reveal className="border border-brand/40 bg-card p-6 sm:p-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand mb-5">My contribution</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand mb-5">{t("case.contribution")}</p>
               <ul className="space-y-2.5">
                 {project.contribution.mine.map((c) => (
                   <li key={c} className="text-sm leading-relaxed flex gap-3"><span className="text-brand mt-0.5">—</span>{c}</li>
@@ -173,7 +175,7 @@ function FlagshipCaseStudy({ project, prev, next }) {
               </ul>
             </Reveal>
             <Reveal delay={0.1} className="border border-border p-6 sm:p-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-5">Team contribution</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-5">{t("case.team")}</p>
               <ul className="space-y-2.5">
                 {project.contribution.team.map((c) => (
                   <li key={c} className="text-sm text-muted-foreground leading-relaxed flex gap-3"><span className="mt-0.5">—</span>{c}</li>
@@ -187,14 +189,14 @@ function FlagshipCaseStudy({ project, prev, next }) {
       <section className="py-16 sm:py-20 border-b border-border" data-testid="case-learnings">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-8">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">Learnings</p>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">What this project taught me</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium mb-3">{t("case.learnings")}</p>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">{t("case.learningsTitle")}</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border">
             {[
-              ["What I learned", project.learnings.learned],
-              ["What I would do differently", project.learnings.differently],
-              ["What I would explore next", project.learnings.next],
+              [t("case.learned"), project.learnings.learned],
+              [t("case.differently"), project.learnings.differently],
+              [t("case.exploreNext"), project.learnings.next],
             ].map(([k, v], i) => (
               <Reveal key={k} delay={i * 0.08} className="bg-background p-6 sm:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand">{k}</p>
@@ -205,18 +207,18 @@ function FlagshipCaseStudy({ project, prev, next }) {
         </div>
       </section>
 
-      <ProjectNav prev={prev} next={next} />
+      <ProjectNav prev={prev} next={next} t={t} />
     </>
   );
 }
 
-function LightCaseStudy({ project, prev, next }) {
+function LightCaseStudy({ project, prev, next, t }) {
   const rows = [
-    ["Context", project.context],
-    ["The challenge", project.challenge],
-    ["My role", `${project.role}. ${project.contribution}`],
-    ["Selected process", project.process],
-    ["Final solution", project.solution],
+    [t("case.context"), project.context],
+    [t("case.challenge"), project.challenge],
+    [t("case.myRole"), `${project.role}. ${project.contribution}`],
+    [t("case.process"), project.process],
+    [t("case.solution"), project.solution],
   ];
   return (
     <>
@@ -224,7 +226,7 @@ function LightCaseStudy({ project, prev, next }) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand font-medium">
-              Additional work — {project.industry}
+              {t("case.additional")} — {project.industry}
             </p>
             <h1 className="mt-4 font-display text-3xl sm:text-5xl font-bold tracking-tight leading-[1.05]">{project.title}</h1>
             <p className="mt-4 text-muted-foreground">{project.client}</p>
@@ -243,7 +245,7 @@ function LightCaseStudy({ project, prev, next }) {
             </Reveal>
           ))}
           <Reveal className="bg-background p-6 sm:p-8 grid grid-cols-12 gap-4">
-            <p className="col-span-12 sm:col-span-3 font-mono text-xs uppercase tracking-[0.2em] text-brand">Disciplines</p>
+            <p className="col-span-12 sm:col-span-3 font-mono text-xs uppercase tracking-[0.2em] text-brand">{t("case.disciplines")}</p>
             <div className="col-span-12 sm:col-span-9 flex flex-wrap gap-2">
               {project.disciplines.map((d) => (
                 <span key={d} className="font-mono text-[10px] uppercase tracking-[0.12em] border border-border px-3 py-1.5 text-muted-foreground">{d}</span>
@@ -252,27 +254,27 @@ function LightCaseStudy({ project, prev, next }) {
           </Reveal>
         </div>
       </section>
-      <ProjectNav prev={prev} next={next} />
+      <ProjectNav prev={prev} next={next} t={t} />
     </>
   );
 }
 
-function ProjectNav({ prev, next }) {
+function ProjectNav({ prev, next, t }) {
   return (
     <nav className="py-14" aria-label="Project navigation" data-testid="project-nav">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-stretch justify-between gap-4">
         {prev ? (
           <Link to={`/work/${prev.slug}`} data-testid="prev-project-link" className="group flex-1 border border-border p-6 hover:border-foreground/40 transition-colors">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2"><ArrowLeft size={13} /> Previous project</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2"><ArrowLeft size={13} /> {t("case.prev")}</p>
             <p className="mt-2 font-display text-lg font-bold tracking-tight group-hover:text-brand transition-colors">{prev.title}</p>
           </Link>
         ) : <div className="flex-1" />}
         <Link to="/#work" data-testid="all-projects-link" className="flex items-center justify-center gap-2 border border-border px-6 py-6 hover:border-brand hover:text-brand transition-colors font-mono text-[10px] uppercase tracking-[0.2em]">
-          <LayoutGrid size={14} /> All projects
+          <LayoutGrid size={14} /> {t("case.allProjects")}
         </Link>
         {next ? (
           <Link to={`/work/${next.slug}`} data-testid="next-project-link" className="group flex-1 border border-border p-6 text-right hover:border-foreground/40 transition-colors">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground flex items-center justify-end gap-2">Next project <ArrowRight size={13} /></p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground flex items-center justify-end gap-2">{t("case.nextProject")} <ArrowRight size={13} /></p>
             <p className="mt-2 font-display text-lg font-bold tracking-tight group-hover:text-brand transition-colors">{next.title}</p>
           </Link>
         ) : <div className="flex-1" />}
@@ -285,24 +287,25 @@ export default function CaseStudyPage() {
   const { slug } = useParams();
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 24 });
+  const { flagships, additional, t } = useLang();
 
   useEffect(() => {
     if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
     else window.scrollTo(0, 0);
   }, [slug]);
 
-  const fi = FLAGSHIPS.findIndex((p) => p.slug === slug);
-  const ai = ADDITIONAL.findIndex((p) => p.slug === slug);
+  const fi = flagships.findIndex((p) => p.slug === slug);
+  const ai = additional.findIndex((p) => p.slug === slug);
   const isFlagship = fi !== -1;
-  const list = isFlagship ? FLAGSHIPS : ADDITIONAL;
+  const list = isFlagship ? flagships : additional;
   const idx = isFlagship ? fi : ai;
   const project = list[idx];
 
   if (!project) {
     return (
       <main className="pt-40 pb-24 text-center" data-testid="case-not-found">
-        <h1 className="font-display text-3xl font-bold">Project not found</h1>
-        <Link to="/" className="mt-6 inline-block text-brand font-mono text-sm uppercase tracking-[0.2em]">← Back to portfolio</Link>
+        <h1 className="font-display text-3xl font-bold">{t("case.notFound")}</h1>
+        <Link to="/" className="mt-6 inline-block text-brand font-mono text-sm uppercase tracking-[0.2em]">← {t("case.back")}</Link>
       </main>
     );
   }
@@ -319,13 +322,13 @@ export default function CaseStudyPage() {
           data-testid="back-to-portfolio-link"
           className="inline-flex items-center gap-2 bg-background/90 backdrop-blur border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] hover:border-brand hover:text-brand transition-colors"
         >
-          <ArrowLeft size={13} /> Back to portfolio
+          <ArrowLeft size={13} /> {t("case.back")}
         </Link>
       </div>
       {isFlagship ? (
-        <FlagshipCaseStudy project={project} prev={prev} next={next} />
+        <FlagshipCaseStudy project={project} prev={prev} next={next} t={t} />
       ) : (
-        <LightCaseStudy project={project} prev={prev} next={next} />
+        <LightCaseStudy project={project} prev={prev} next={next} t={t} />
       )}
     </main>
   );

@@ -10,11 +10,12 @@ import Approach from "../components/home/Approach";
 import Experience from "../components/home/Experience";
 import AboutSection from "../components/home/AboutSection";
 import ContactSection from "../components/home/ContactSection";
-import { EXPERTISE_LINE } from "../data/site";
+import { useLang } from "../i18n/LanguageContext";
 import { scrollToHash } from "../components/Header";
 
 export default function HomePage() {
   const location = useLocation();
+  const { expertiseLine } = useLang();
 
   useEffect(() => {
     if (location.hash) {
@@ -27,7 +28,7 @@ export default function HomePage() {
     <main data-testid="home-page">
       <Hero />
       <Positioning />
-      <Marquee items={EXPERTISE_LINE} />
+      <Marquee items={expertiseLine} />
       <SignatureWork />
       <AdditionalWork />
       <Capabilities />

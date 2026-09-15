@@ -1,21 +1,22 @@
 import { Reveal, SectionHead } from "../Reveal";
-import { EXPERIENCE } from "../../data/site";
+import { useLang } from "../../i18n/LanguageContext";
 
 export default function Experience() {
+  const { experience, t } = useLang();
   return (
     <section id="experience" data-testid="experience-section" className="py-24 sm:py-32 border-t border-border scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHead
           id="experience"
-          overline="Experience"
-          title="Where I've designed"
-          lead="Roles across consulting, data analytics, agency and software teams."
+          overline={t("exp.overline")}
+          title={t("exp.title")}
+          lead={t("exp.lead")}
         />
 
         <div className="mt-14 relative" data-testid="experience-timeline">
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border hidden sm:block" aria-hidden="true" />
           <div className="space-y-10">
-            {EXPERIENCE.map((e, i) => (
+            {experience.map((e, i) => (
               <Reveal key={e.company} delay={i * 0.08} className="relative sm:pl-10">
                 <span className="hidden sm:block absolute left-0 top-2 w-[15px] h-[15px] border-2 border-brand bg-background" aria-hidden="true" />
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 border border-border bg-card p-6 sm:p-8 hover:border-foreground/40 transition-colors">
@@ -34,7 +35,7 @@ export default function Experience() {
                       ))}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      <span className="font-mono uppercase tracking-[0.15em] text-[9px] text-brand block mb-1">Tools</span>
+                      <span className="font-mono uppercase tracking-[0.15em] text-[9px] text-brand block mb-1">{t("exp.tools")}</span>
                       {e.tools.join(" · ")}
                     </p>
                   </div>

@@ -1,21 +1,22 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, SectionHead } from "../Reveal";
 import ProjectVisual from "../ProjectVisual";
-import { ADDITIONAL } from "../../data/additional";
+import { useLang } from "../../i18n/LanguageContext";
 
 export default function AdditionalWork() {
+  const { additional, t } = useLang();
   return (
     <section data-testid="additional-work-section" className="py-24 sm:py-32 border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHead
           id="additional-work"
-          overline="Breadth"
-          title="Additional work"
-          lead="Further projects across culture, data, health, fintech and automotive — concise stories that show range without diluting the depth above."
+          overline={t("add.overline")}
+          title={t("add.title")}
+          lead={t("add.lead")}
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="additional-work-grid">
-          {ADDITIONAL.map((p, i) => (
+          {additional.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 3) * 0.08}>
               <a
                 href={`/work/${p.slug}`}
@@ -43,7 +44,7 @@ export default function AdditionalWork() {
                       <span key={d} className="font-mono text-[9px] uppercase tracking-[0.12em] border border-border px-2 py-0.5 text-muted-foreground">{d}</span>
                     ))}
                   </div>
-                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.15em] text-brand">View project →</p>
+                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.15em] text-brand">{t("add.viewProject")}</p>
                 </div>
               </a>
             </Reveal>

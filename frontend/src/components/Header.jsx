@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Sun, Moon, Menu, X, Linkedin, Download } from "lucide-react";
-import { PROFILE } from "../data/site";
+import { useLang } from "../i18n/LanguageContext";
 
 const NAV = [
-  { label: "Home", hash: "#top", id: "home" },
-  { label: "Work", hash: "#work", id: "work" },
-  { label: "About", hash: "#about", id: "about" },
-  { label: "Experience", hash: "#experience", id: "experience" },
-  { label: "Contact", hash: "#contact", id: "contact" },
+  { key: "nav.home", hash: "#top", id: "home" },
+  { key: "nav.work", hash: "#work", id: "work" },
+  { key: "nav.about", hash: "#about", id: "about" },
+  { key: "nav.experience", hash: "#experience", id: "experience" },
+  { key: "nav.contact", hash: "#contact", id: "contact" },
 ];
 
 export const scrollToHash = (hash) => {
@@ -23,6 +23,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { profile, t, lang, toggleLang } = useLang();
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -53,42 +54,50 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-7" aria-label="Main navigation">
           {NAV.map((n) => (
             <a key={n.id} href={"/" + n.hash} onClick={(e) => go(e, n.hash)} data-testid={`nav-${n.id}`} className="link-sweep text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {n.label}
+              {t(n.key)}
             </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
           <button
+            data-testid="language-toggle"
+            onClick={toggleLang}
+            aria-label="Switch language / Cambiar idioma"
+            className="w-9 h-9 border border-border hover:border-brand hover:text-brand transition-colors font-mono text-[11px] tracking-widest"
+          >
+            {lang === "en" ? "ES" : "EN"}
+          </button>
+          <button
             data-testid="theme-toggle"
             onClick={() => setDark(!dark)}
-            aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label={dark ? t("action.themeLight") : t("action.themeDark")}
             className="p-2 border border-border hover:border-foreground/40 transition-colors"
           >
             {dark ? <Sun size={15} /> : <Moon size={15} />}
           </button>
           <a
             data-testid="linkedin-btn"
-            href={PROFILE.linkedin}
+            href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
+            aria-label={t("action.linkedinAria")}
             className="p-2 border border-border hover:border-foreground/40 transition-colors"
           >
             <Linkedin size={15} />
           </a>
           <a
             data-testid="download-cv-btn"
-            href={PROFILE.cvFile}
+            href={profile.cvFile}
             download
             className="hidden sm:flex items-center gap-2 bg-foreground text-background px-4 py-2 text-xs font-mono uppercase tracking-[0.15em] hover:bg-brand hover:text-white transition-colors"
           >
-            <Download size={13} /> Download CV
+            <Download size={13} /> {t("action.downloadCv")}
           </a>
           <button
             data-testid="mobile-menu-btn"
             onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
+            aria-label={t("action.menu")}
             aria-expanded={open}
             className="lg:hidden p-2 border border-border"
           >
@@ -101,11 +110,11 @@ export default function Header() {
         <nav className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-1" aria-label="Mobile navigation" data-testid="mobile-menu">
           {NAV.map((n) => (
             <a key={n.id} href={"/" + n.hash} onClick={(e) => go(e, n.hash)} data-testid={`mobile-nav-${n.id}`} className="py-3 px-2 text-base border-b border-border/60 last:border-0">
-              {n.label}
+              {t(n.key)}
             </a>
           ))}
-          <a data-testid="mobile-download-cv-btn" href={PROFILE.cvFile} download className="mt-3 flex items-center justify-center gap-2 bg-foreground text-background px-4 py-3 text-xs font-mono uppercase tracking-[0.15em]">
-            <Download size={13} /> Download CV
+          <a data-testid="mobile-download-cv-btn" href={profile.cvFile} download className="mt-3 flex items-center justify-center gap-2 bg-foreground text-background px-4 py-3 text-xs font-mono uppercase tracking-[0.15em]">
+            <Download size={13} /> {t("action.downloadCv")}
           </a>
         </nav>
       )}
