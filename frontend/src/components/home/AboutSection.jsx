@@ -32,18 +32,14 @@ export default function AboutSection() {
 
         <div className="lg:col-span-5">
           <Reveal delay={0.15}>
-            <div className="border border-border bg-card aspect-[4/5] relative overflow-hidden" data-testid="about-portrait-frame">
-              <div className="absolute inset-0 grid grid-cols-4 grid-rows-5 opacity-[0.07]">
-                {Array.from({ length: 20 }).map((_, i) => (
-                  <div key={i} className="border border-foreground" />
-                ))}
-              </div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                <p className="font-display text-7xl font-bold tracking-tight text-foreground/90">RT</p>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                  {t("about.portraitNote")}
-                </p>
-              </div>
+            <div className="border border-border bg-card aspect-[4/5] relative overflow-hidden group" data-testid="about-portrait-frame">
+              <img
+                src="/images/ricardo-portrait.jpg"
+                alt="Ricardo Andrei Torres Medina — UX/UI Project Lead"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+                data-testid="about-portrait-img"
+              />
               <div className="absolute bottom-0 inset-x-0 border-t border-border bg-background/80 backdrop-blur px-5 py-3 flex justify-between items-center">
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{profile.location}</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500" aria-label="Available" />

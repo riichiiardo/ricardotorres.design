@@ -36,7 +36,6 @@ Premium, editorial, high-credibility UX/UI + digital product design portfolio fo
 - Portfolio restructure (user request, 2026-09-15): removed Secretaría Distrital de Salud and Secretaría Distrital de Gobierno from the portfolio (no media to support them). New flagship set: 01 Fundación Santa Fe, 02 Telefónica, 03 GABO — Gobierno Abierto Bogotá (real Play Store screens + description from com.supercade listing), 04 321 Ignition — Overfuel (real product shots from overfuel.com). Additional work now 4 projects (DataRips, Corporal Move, Wealth Ocean, MediQu) in a 2×2 grid. Placeholder-only media blocks removed from case studies; `ProjectVisual` falls back to CSS compositions only where no real media exists. Case pages support `board` (Figma export) or `gallery` (live product screens) media sections.
 
 ## Pending / backlog
-- P0: Ricardo's portrait photo (Figma About Me frame has bio text but no usable portrait render — user to upload).
 - P0: Replace generated CV PDF with Ricardo's own CV file (user will upload).
 - P1: Enable email notifications (provision EMERGENT_EMAIL_KEY in backend/.env).
 - P1: Per-project Figma prototype "View prototype" links when valid URLs exist.
@@ -48,3 +47,4 @@ Premium, editorial, high-credibility UX/UI + digital product design portfolio fo
 - ES/EN toggle verified on homepage, work grid, flagship case study (incl. synthesis labels), contact section; language persists across routes.
 - Real Figma images verified on work grid cards, FSFB case hero, full board section and design-system section (screenshots).
 - Reorganized flagships verified: GABO + 321 Ignition cards and case pages render with Play Store / Overfuel media galleries; additional grid shows 4 real projects; no leftover placeholder media blocks.
+- Ricardo's real portrait integrated (2026-09-15): user-provided photo at /app/frontend/public/images/ricardo-portrait.jpg (4:5, 73KB), shown in the About section replacing the RT placeholder. Verified via screenshot.
