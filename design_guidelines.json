@@ -1,0 +1,267 @@
+{
+  "project_title": "Ricardo Andrei Torres Medina — UX/UI Project Lead & Digital Product Designer Portfolio",
+  "archetype": "ARCHETYPE 4: SWISS & HIGH-CONTRAST + EDITORIAL LUXURY",
+  "theme": {
+    "mode": "editorial-light-dark-toggle",
+    "default": "light",
+    "background_light": "#F8F7F4",
+    "background_dark": "#0D0E10",
+    "surface_light": "#FFFFFF",
+    "surface_dark": "#141619",
+    "surface_alt_light": "#F0EEE9",
+    "surface_alt_dark": "#1B1E23",
+    "text_primary_light": "#111215",
+    "text_primary_dark": "#F3F4F6",
+    "text_secondary_light": "#555861",
+    "text_secondary_dark": "#9CA3AF",
+    "text_muted_light": "#888C96",
+    "text_muted_dark": "#6B7280",
+    "border_light": "rgba(17, 18, 21, 0.12)",
+    "border_dark": "rgba(255, 255, 255, 0.12)",
+    "accent_primary": "#E63946",
+    "accent_secondary": "#0A84FF",
+    "accent_emerald": "#059669",
+    "accent_amber": "#D97706"
+  },
+  "typography": {
+    "heading_font": "Space Grotesk, Manrope, sans-serif",
+    "body_font": "Inter, Geist, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "font_imports": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');",
+    "hierarchy": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight",
+      "h3_card": "text-xl sm:text-2xl font-semibold tracking-tight",
+      "overline_label": "text-xs font-mono uppercase tracking-[0.25em] text-accent-primary font-semibold",
+      "body_lead": "text-lg sm:text-xl text-secondary leading-relaxed font-normal",
+      "body_regular": "text-base text-secondary leading-relaxed",
+      "caption": "text-sm text-muted font-normal"
+    }
+  },
+  "layout_and_grids": {
+    "page_container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "hero_layout": "Asymmetrical 12-column editorial grid. Col-span-12 lg:col-span-8 for primary kinetic typography & manifesto statements, col-span-12 lg:col-span-4 for portrait/status badge & rapid metrics.",
+    "flagship_grid": "Numbered Tetris Bento Grid (01-04). Varied editorial ratios: 01 spans col-span-12 lg:col-span-8 (Dominant), 02 spans col-span-12 lg:col-span-4 (Tall showcase), 03 spans col-span-12 lg:col-span-7, 04 spans col-span-12 lg:col-span-5.",
+    "additional_work_grid": "3-column staggered masonry bento grid (grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6).",
+    "capabilities_grid": "4-column technical precision matrix with custom iconography & interactive skill radar/expanders.",
+    "microsite_case_study": "Deep analytical layout with fixed reading progress bar, hero banner, contextual sidebar meta, staggered discovery/research/IA/wireframe artifacts, interactive prototype showcase, and metric impact counters."
+  },
+  "visual_enhancers": {
+    "editorial_borders": "1px crisp solid borders (border-border) with zero-radius or subtle rounded-md corners.",
+    "hero_masked_reveal": "Line-by-line masked stagger animation with Framer Motion on initial load.",
+    "marquee": "Single slow organic editorial ribbon marquee with low contrast background and wide text tracking.",
+    "parallax_moment": "Subtle Framer Motion parallax scroll wrapper on the flagship case study visuals.",
+    "grain_overlay": "Subtle CSS radial noise overlay with 2% opacity for analog texture.",
+    "custom_cursor": "Minimal circular cursor follower that grows on interactive project cards and CTAs."
+  },
+  "image_urls": {
+    "ricardo_portrait": "https://images.unsplash.com/photo-1598897516650-e4dc73d8e417?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "flagship_01_fundacion": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "flagship_02_telefonica": "https://images.unsplash.com/photo-1644143153646-f36282dfb953?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "flagship_03_salud_aiviz": "https://images.unsplash.com/photo-1584291527908-033f4d6542c8?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "flagship_04_gobierno_voice": "https://images.unsplash.com/photo-1551650992-ee4fd47df41f?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "additional_01_gabo": "https://images.unsplash.com/photo-1526050071463-2c476b162a4c?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "additional_02_datarips": "https://images.unsplash.com/photo-1706509511714-2a1e0f74321e?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "additional_03_corporalmove": "https://images.unsplash.com/photo-1709539512464-9b2ab5d2d9be?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "additional_04_wealthocean": "https://images.unsplash.com/photo-1644143153646-f36282dfb953?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "additional_05_mediqu": "https://images.unsplash.com/photo-1767449356630-c60094b1d1b4?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "additional_06_ignition": "https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "content_structure": {
+    "header": {
+      "brand_name": "Ricardo Andrei Torres Medina",
+      "role": "UX/UI Project Lead | Bogotá, CO",
+      "nav_links": ["Flagship Work", "Additional Work", "Capabilities", "Approach", "Timeline", "About", "Contact"],
+      "ctas": ["Download CV", "LinkedIn Profile"]
+    },
+    "hero": {
+      "kicker": "UX/UI PROJECT LEAD & DIGITAL PRODUCT DESIGNER",
+      "heading_reveal_lines": [
+        "I don't just design screens.",
+        "I solve complex product problems.",
+        "Engineering clarity for healthcare, telecom & civic AI."
+      ],
+      "location_tag": "Based in Bogotá, Colombia 🇨🇴 — Open for Global Projects & Lead Roles",
+      "manifesto_summary": "10+ years driving end-to-end design systems, conversational AI interfaces, and high-impact digital products for Latin America's top health systems and enterprise infrastructure.",
+      "primary_cta": "Explore Flagship Work",
+      "secondary_cta": "Download Full CV (PDF)",
+      "metrics_banner": [
+        {"value": "10+", "label": "Years Design Leadership"},
+        {"value": "4", "label": "Flagship Case Studies"},
+        {"value": "3.5M+", "label": "Users Impacted"},
+        {"value": "99.4%", "label": "Design System Adoption"}
+      ]
+    },
+    "positioning_manifesto": {
+      "chapter_01": {"title": "01 / Problem-First Engineering", "description": "Every pixel originates from business requirements, user mental models, and technical constraints — never decorative trends."},
+      "chapter_02": {"title": "02 / Conversational & AI UX", "description": "Designing human-centered voice interfaces (GCP) and AI data visualization dashboards that transform raw complexity into instant decisions."},
+      "chapter_03": {"title": "03 / Scalable Systems", "description": "Architecting multi-brand design systems that unite cross-functional dev teams across iOS, Android, and Web platforms."}
+    },
+    "signature_case_studies": [
+      {
+        "id": "fundacion-santa-fe",
+        "number": "01",
+        "title": "Fundación Santa Fe de Bogotá",
+        "subtitle": "Patient Experience Ecosystem & Emergency Telemetry Redesign",
+        "category": "Digital Health / Clinical UX",
+        "year": "2024–2025",
+        "role": "UX/UI Project Lead",
+        "impact": "42% reduction in emergency triage check-in time",
+        "image_key": "flagship_01_fundacion",
+        "summary": "Full digital transformation of Colombia's premier hospital group, designing critical triage interfaces and mobile health applications for over 1.2M patients.",
+        "tags": ["Design System", "Clinical UX", "React Native", "Telemetry Viz"]
+      },
+      {
+        "id": "telefonica-movistar",
+        "number": "02",
+        "title": "Telefónica / Movistar Enterprise",
+        "subtitle": "Multi-Tenant Cloud Telecom & B2B Service Management Suite",
+        "category": "Enterprise Telecom / SaaS",
+        "year": "2023",
+        "role": "Lead Product Designer",
+        "impact": "3.5M+ active mobile & broadband business accounts managed",
+        "image_key": "flagship_02_telefonica",
+        "summary": "Streamlining complex enterprise cloud infrastructure provisioning and self-service billing workflows for Movistar LATAM across 5 countries.",
+        "tags": ["B2B SaaS", "Design System", "Complex Workflows", "Accessibility"]
+      },
+      {
+        "id": "secretaria-salud-ai",
+        "number": "03",
+        "title": "Secretaría Distrital de Salud",
+        "subtitle": "Epidemiological AI Dashboard & Predictive Health Data Visualization",
+        "category": "Civic Tech / AI Data Viz",
+        "year": "2023–2024",
+        "role": "UX Lead & AI Interface Architect",
+        "impact": "Deployed across 20 district public hospitals in Bogotá",
+        "image_key": "flagship_03_salud_aiviz",
+        "summary": "Designing real-time predictive pandemic tracking and hospital resource distribution visualizations for public health directors.",
+        "tags": ["AI Data Viz", "Public Health", "Dashboard", "GCP Data Studio"]
+      },
+      {
+        "id": "secretaria-gobierno-voice",
+        "number": "04",
+        "title": "Secretaría Distrital de Gobierno",
+        "subtitle": "Voice UX & Multimodal Citizen Portal on Google Cloud Platform",
+        "category": "Voice UX / GCP AI",
+        "year": "2022–2023",
+        "role": "Conversational Designer & Product Strategist",
+        "impact": "Over 850,000 public inquiries resolved autonomously",
+        "image_key": "flagship_04_gobierno_voice",
+        "summary": "Creating accessible voice-guided government assistance portals and multi-dialect conversational flows powered by GCP Dialogflow CX.",
+        "tags": ["Voice UX", "Conversational AI", "GCP Dialogflow", "Accessibility"]
+      }
+    ],
+    "additional_work": [
+      {
+        "id": "gabo",
+        "title": "GABO Festival & Cultural Archive",
+        "category": "Editorial & Storytelling",
+        "year": "2024",
+        "summary": "Immersive digital museum and interactive journalism archive honoring Gabriel García Márquez.",
+        "image_key": "additional_01_gabo"
+      },
+      {
+        "id": "datarips",
+        "title": "DataRips Analytics",
+        "category": "Developer Tooling",
+        "year": "2023",
+        "summary": "Automated clinical billing protocol validator and data parsing system for health providers.",
+        "image_key": "additional_02_datarips"
+      },
+      {
+        "id": "corporal-move",
+        "title": "Corporal Move App",
+        "category": "Mobile Product",
+        "year": "2023",
+        "summary": "Biomechanical motion tracking and physiotherapy exercise monitoring mobile application.",
+        "image_key": "additional_03_corporalmove"
+      },
+      {
+        "id": "wealth-ocean",
+        "title": "Wealth Ocean Fintech",
+        "category": "Fintech & Wealth",
+        "year": "2022",
+        "summary": "Algorithmic investment dashboard and asset allocation terminal for high-net-worth portfolios.",
+        "image_key": "additional_04_wealthocean"
+      },
+      {
+        "id": "mediqu",
+        "title": "MediQu Telemedicine",
+        "category": "Healthtech",
+        "year": "2022",
+        "summary": "On-demand specialist tele-consultation platform for remote rural municipalities in Colombia.",
+        "image_key": "additional_05_mediqu"
+      },
+      {
+        "id": "321-ignition",
+        "title": "321 Ignition Automotive",
+        "category": "E-Commerce SaaS",
+        "year": "2021",
+        "summary": "High-velocity mobile-first car dealership storefront platform and inventory engine.",
+        "image_key": "additional_06_ignition"
+      }
+    ],
+    "capabilities": [
+      {"title": "Product Strategy & Architecture", "desc": "Turning ambiguous executive goals into structured roadmaps, user journeys, and technical product requirements."},
+      {"title": "Conversational & Voice UX (GCP)", "desc": "Designing NLU conversation flows, intent trees, and multimodal voice fallback systems on Google Cloud Platform."},
+      {"title": "AI & Data Visualization", "desc": "Translating complex high-frequency datasets into intuitive dashboards, predictive charts, and decision support UI."},
+      {"title": "Enterprise Design Systems", "desc": "Building multi-brand tokenized component libraries in Figma & React with 100% WCAG AA compliance."},
+      {"title": "Clinical & Civic UX", "desc": "Crafting zero-error interfaces for medical emergency rooms, triage nurses, and high-stakes municipal portals."},
+      {"title": "Rapid Prototyping & Testing", "desc": "Validating hypotheses with high-fidelity interactive prototypes, user usability sessions, and quantitative A/B metrics."}
+    ],
+    "end_to_end_approach": [
+      {"step": "01", "name": "Problem Framing & Research", "details": "Stakeholder alignment, contextual inquiry, field observations in clinical/civic settings, user interviewing."},
+      {"step": "02", "name": "Synthesis & Information Architecture", "details": "Affinity mapping, task flow diagrams, mental model mapping, navigation hierarchy definition."},
+      {"step": "03", "name": "Wireframing & Interaction Design", "details": "Low-fidelity structural exploration, micro-interaction modeling, accessibility review, voice script writing."},
+      {"step": "04", "name": "Design System & UI Craft", "details": "Tokenized color/typography scale, accessible interactive components, responsive auto-layout construction."},
+      {"step": "05", "name": "Validation, Prototype & Delivery", "details": "Usability testing, handoff specs with developer tokens, analytics instrumentation, iterative post-launch optimization."}
+    ],
+    "experience_timeline": [
+      {"period": "2022 — Present", "role": "UX/UI Project Lead & AI UX Architect", "company": "Enterprise Healthcare & Civic Tech Lead (Bogotá, CO)", "desc": "Leading cross-functional UX teams on flagship projects for Fundación Santa Fe, Secretaría de Salud, and Secretaría de Gobierno."},
+      {"period": "2020 — 2022", "role": "Senior Digital Product Designer", "company": "Telefónica / Movistar Digital Hub", "desc": "Architected end-to-end B2B telecom self-service portals and multi-country cloud administration tools."},
+      {"period": "2018 — 2020", "role": "Lead Product Designer", "company": "Fintech & Healthtech Innovation Lab", "desc": "Designed mobile applications for digital payments, asset management, and remote tele-consultations."},
+      {"period": "2014 — 2018", "role": "UI/UX Designer & Interaction Developer", "company": "Digital Media & Agency Practice", "desc": "Crafted brand strategies, interactive web portals, and editorial archives for regional cultural institutions."}
+    ],
+    "about_ricardo": {
+      "name": "Ricardo Andrei Torres Medina",
+      "location": "Bogotá, Colombia (UTC-5)",
+      "bio_paragraphs": [
+        "I am a UX/UI Project Lead and Digital Product Designer based in Bogotá, Colombia. For over a decade, I have focused on designing critical digital infrastructure where clarity is paramount — from emergency healthcare triage systems to AI-powered epidemiological tracking and municipal GCP voice assistants.",
+        "My design philosophy is rooted in problem solving over visual decoration. I bridge human psychology, system architecture, and modern engineering constraints to create products that perform seamlessly at scale."
+      ],
+      "skills_pills": ["UX Leadership", "Product Strategy", "Figma Design Systems", "Voice UX / GCP Dialogflow", "AI Interface Design", "Data Visualization", "Usability Testing", "React / HTML / Tailwind Integration", "WCAG 2.1 AA"],
+      "languages": ["Spanish (Native)", "English (Full Professional)"]
+    },
+    "contact": {
+      "title": "Let's solve your next product challenge together.",
+      "email": "ricardo.torres.medina.ux@gmail.com",
+      "linkedin": "linkedin.com/in/ricardo-andrei-torres-medina",
+      "location": "Bogotá, Colombia • Available worldwide",
+      "form_fields": ["fullName", "email", "company", "projectScope", "message"]
+    }
+  },
+  "microsite_case_study_structure": {
+    "sections": [
+      "Case Study Cover & Hero Snapshot",
+      "Project Meta & Context (Role, Timeline, Team, Tools, Key Metric)",
+      "The Core Problem & Business Challenge",
+      "Discovery & Field Research",
+      "Synthesis & Information Architecture (User Flows / Mental Models)",
+      "Wireframing & Interaction Design Explorations",
+      "UI Design System & Visual Foundations",
+      "Interactive Prototype & Key Flow Demos",
+      "Validation, Usability Testing & Iteration",
+      "Final Product & Live Artifacts",
+      "Measurable Impact & Key Achievements",
+      "My Direct Contribution & Team Leadership",
+      "Retrospective Learnings & Key Takeaways",
+      "Next Project Navigation Footer"
+    ]
+  },
+  "instructions_to_main_agent": {
+    "routing": "Use React Router DOM for deep case study micro-pages (e.g., /case-study/fundacion-santa-fe, /case-study/telefonica-movistar, /case-study/secretaria-salud-ai, /case-study/secretaria-gobierno-voice). Ensure clicking any signature case study opens the detailed microsite page smoothly with scroll-to-top.",
+    "interactivity": "Include an interactive Light/Dark mode toggle in the persistent header. Add smooth Lenis scrolling or Framer Motion scroll listeners. Include interactive tabs/filters on additional work and capabilities.",
+    "data_testid_rule": "MUST add data-testid to every nav item, button, link, form input, project card, case study tab, modal, dark mode toggle, and download action.",
+    "smooth_transitions": "Implement masked line reveals on hero text using Framer Motion variants. Add subtle hover tilt/scaling to case study images without breaking responsive grids."
+  }
+}
